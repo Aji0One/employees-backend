@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express= require("express");
 const db= require("./db/connect");
-const cors= require("cors");
 
 //import employee router
 const employeeRouter= require("./Routes/employees.route");
@@ -18,9 +17,7 @@ app.get('/',(req,res) => {
 //middleware
 app.use(express.json())
 
-// CORS 
-app.use(cors());
-
+// CORS must be added
 app.use('/api', employeeRouter);
 
 const PORT= process.env.PORT || 3002;
